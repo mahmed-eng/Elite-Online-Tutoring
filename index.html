@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Online Tutoring</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4203a9, #90bafc);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(5px);
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+
+        .feature-card i {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        /* WhatsApp Widget */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn img {
+            width: 35px;
+            height: 35px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #ffd700;
+            color: #4203a9;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .feature-card { padding: 20px; }
+            .container { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Elite Online Tutoring</h1>
+            <p class="tagline">Your Gateway to Academic Excellence</p>
+            <a href="https://wa.me/+923362245627" class="cta-button">Get Started Now</a>
+        </header>
+
+        <section class="features">
+            <a href="index.html" class="feature-card">
+                <i>📚</i>
+                <h2>Expert Tutors</h2>
+                <p>Learn from qualified professionals in various subjects</p>
+            </a>
+            <a href="index.html" class="feature-card">
+                <i>⏰</i>
+                <h2>Flexible Timing</h2>
+                <p>Schedule classes at your convenience</p>
+            </a>
+            <a href="index.html" class="feature-card">
+                <i>💻</i>
+                <h2>Online Platform</h2>
+                <p>Interactive virtual classrooms</p>
+            </a>
+            <a href="index.html" class="feature-card">
+                <i>⭐</i>
+                <h2>Personalized Learning</h2>
+                <p>Tailored lessons for your needs</p>
+            </a>
+        </section>
+    </div>
+
+    <!-- WhatsApp Widget -->
+    <div class="whatsapp-widget">
+        <a href="https://wa.me/+923362245627" target="_blank" class="whatsapp-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+    </div>
+
+    <script>
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation to feature cards
+        const cards = document.querySelectorAll('.feature-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.5s ease-in forwards';
+                }
+            });
+        }, { threshold: 0.5 });
+
+        cards.forEach(card => observer.observe(card));
+    </script>
+</body>
+</html>
